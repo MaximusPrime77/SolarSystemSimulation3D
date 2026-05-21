@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultra Detaylı Uzay Simülasyonu</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <style>
         /* ==========================================
            PREMIUM SİNEMATİK UI - UZAY GEMİSİ TEMASI
@@ -300,6 +303,10 @@
             z-index: 10;
         }
 
+        #info-panel.active {
+            right: 20px;
+        }
+
         #info-panel::-webkit-scrollbar {
             width: 4px;
         }
@@ -307,10 +314,6 @@
         #info-panel::-webkit-scrollbar-thumb {
             background: var(--border-glow);
             border-radius: 2px;
-        }
-
-        #info-panel.active {
-            right: 20px;
         }
 
         /* Kart Başlık Alanı */
@@ -558,9 +561,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
 
     <script type="importmap">
         {
@@ -581,7 +582,6 @@
             <input type="range" id="speedSlider" min="0" max="3" step="0.1" value="1">
         </div>
 
-        <!-- Premium Yardım Paneli -->
         <div class="help-panel">
             <div class="help-panel-title">🎮 Kontroller</div>
 
@@ -615,7 +615,6 @@
         </div>
     </div>
 
-    <!-- HUD: Sol Alt - Kamera Koordinatları -->
     <div id="hud-coords" class="hud-panel hud-bottom-left">
         <div class="hud-label">📍 KAMERA POZİSYON</div>
         <div id="hud-x">X: 0.00</div>
@@ -623,14 +622,12 @@
         <div id="hud-z">Z: 0.00</div>
     </div>
 
-    <!-- HUD: Sağ Alt - Simülasyon Bilgisi -->
     <div id="hud-time" class="hud-panel hud-bottom-right">
         <div class="hud-label">⚙️ SİMÜLASYON DURUMU</div>
         <div id="hud-elapsed">⏱ 00:00:00</div>
         <div id="hud-scale-info">⚡ 1x</div>
     </div>
 
-    <!-- HUD: Üst Orta - Hedef Göstergesi -->
     <div id="hud-target" class="hud-panel hud-top-center">
         <span id="target-name">◈ SERBEST UÇUŞ ◈</span>
     </div>
