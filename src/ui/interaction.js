@@ -208,6 +208,13 @@ export function setupUI(scene, camera, controls, planets, sun, asteroidMesh, sta
         });
     }
 
+    // OrbitControls'ün kendi tekerlek (wheel) olayını dinlemesini engellemek için canvas üzerinde olayı capture aşamasında durduruyoruz.
+    if (controls.domElement) {
+        controls.domElement.addEventListener('wheel', (event) => {
+            event.stopPropagation();
+        }, { capture: true });
+    }
+
     // Alternatif 2: Fare Tekerleği (Wheel) ile Zoom
     window.addEventListener('wheel', (event) => {
         const zoomScale = 0.90;

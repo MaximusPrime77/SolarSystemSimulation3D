@@ -56,6 +56,9 @@ const showInfoFn = setupUI(scene, camera, controls, planets, sun, asteroidMesh, 
 function animate() {
     requestAnimationFrame(animate);
 
+    // Tarayıcı sekmesi gizlendiğinde veya duvar kağıdı arkada kaldığında render'ı askıya alarak CPU/GPU tasarrufu sağla
+    if (document.hidden) return;
+
     if (!state.isPaused) {
         const speed = state.timeScale;
         state.absoluteTime += 0.01 * speed;
