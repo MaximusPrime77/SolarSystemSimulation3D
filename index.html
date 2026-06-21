@@ -192,6 +192,26 @@
             animation: scaleGlow 2s infinite;
         }
 
+        /* Etkileşim Kilidi Açıkken Parlayan Durum */
+        #lockBtn.unlocked {
+            background: linear-gradient(135deg, rgba(255, 170, 0, 0.25) 0%, rgba(255, 100, 0, 0.15) 100%);
+            color: #ffaa00;
+            border-color: rgba(255, 170, 0, 0.5);
+            box-shadow: 
+                0 0 20px rgba(255, 170, 0, 0.3),
+                0 4px 15px rgba(0, 0, 0, 0.4);
+            animation: lockGlow 2s infinite;
+        }
+
+        @keyframes lockGlow {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(255, 170, 0, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 170, 0, 0.5);
+            }
+        }
+
         @keyframes scaleGlow {
 
             0%,
@@ -532,6 +552,7 @@
 <body>
     <button id="menu-toggle-btn">⚙</button>
     <div id="ui-container">
+        <button id="lockBtn">Etkileşim: Kilitli 🔒</button>
         <button id="pauseBtn">Durdur ⏸️</button>
         <div class="slider-container">
             <label>HIZ ÇARPANI <span id="speedValue">1x</span></label>
@@ -566,21 +587,21 @@
 
             <div class="help-item" id="help-right-click">
                 <div class="help-content">
-                    <div class="help-action">CTRL + SOL TIK SÜRÜKLE</div>
-                    <div class="help-desc">Evreni döndür</div>
+                    <div class="help-action">SOL TIK SÜRÜKLE</div>
+                    <div class="help-desc">Evreni döndür (Kilit açıkken)</div>
                 </div>
             </div>
 
             <div class="help-item" id="help-scroll">
                 <div class="help-content">
                     <div class="help-action">TEKERLEK / W - S TUŞLARI</div>
-                    <div class="help-desc">Yakınlaştır / Uzaklaştır</div>
+                    <div class="help-desc">Yakınlaştır / Uzaklaştır (Kilit açıkken)</div>
                 </div>
             </div>
 
             <div class="help-item" id="help-shift-drag">
                 <div class="help-content">
-                    <div class="help-action">SHIFT + SOL TIK VEYA ORTA TIK SÜRÜKLE</div>
+                    <div class="help-action">SHIFT VEYA ORTA TIK SÜRÜKLE</div>
                     <div class="help-desc">Dikey sürükleyerek yakınlaş/uzaklaş</div>
                 </div>
             </div>

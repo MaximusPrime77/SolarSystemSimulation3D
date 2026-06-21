@@ -14,7 +14,8 @@ const state = {
     focusedPlanet: null,
     comparisonMesh: null,
     isTrueScale: false,
-    simulationStartTime: Date.now()
+    simulationStartTime: Date.now(),
+    isLocked: true
 };
 
 const planets = [];

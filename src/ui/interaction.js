@@ -110,15 +110,8 @@ export function setupUI(scene, camera, controls, planets, sun, asteroidMesh, sta
     }
 
     window.addEventListener('pointerdown', (event) => {
+        if (state.isLocked) return; // Kilitliyken etkileşimi tamamen yoksay
         if (event.target.closest('#info-panel') || event.target.closest('#ui-container')) return;
-
-        // Ctrl tuşu basılıyken sol tıklanırsa döndürme başlar, gezegen seçimi engellenir
-        if (event.button === 0 && event.ctrlKey) {
-            controls.mouseButtons.LEFT = THREE.MOUSE.ROTATE;
-            return;
-        } else if (event.button === 0) {
-            controls.mouseButtons.LEFT = THREE.MOUSE.NONE;
-        }
 
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -220,12 +213,14 @@ export function setupUI(scene, camera, controls, planets, sun, asteroidMesh, sta
     // OrbitControls'ün kendi tekerlek (wheel) olayını dinlemesini engellemek için canvas üzerinde olayı capture aşamasında durduruyoruz.
     if (controls.domElement) {
         controls.domElement.addEventListener('wheel', (event) => {
+            if (state.isLocked) return;
             event.stopPropagation();
         }, { capture: true });
     }
 
     // Alternatif 2: Fare Tekerleği (Wheel) ile Zoom
     window.addEventListener('wheel', (event) => {
+        if (state.isLocked) return;
         const zoomScale = 0.90;
         if (event.deltaY < 0) {
             controls.dollyIn(zoomScale);
@@ -241,9 +236,7 @@ export function setupUI(scene, camera, controls, planets, sun, asteroidMesh, sta
 
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Shift') isShiftDown = true;
-        if (e.key === 'Control') {
-            controls.mouseButtons.LEFT = THREE.MOUSE.ROTATE;
-        }
+        if (state.isLocked) return;
 
         const keyZoomScale = 0.90;
         if (e.key === 'w' || e.key === 'W' || e.key === 'ArrowUp' || e.key === '+') {
@@ -257,9 +250,6 @@ export function setupUI(scene, camera, controls, planets, sun, asteroidMesh, sta
 
     window.addEventListener('keyup', (e) => {
         if (e.key === 'Shift') isShiftDown = false;
-        if (e.key === 'Control') {
-            controls.mouseButtons.LEFT = THREE.MOUSE.NONE;
-        }
     });
 
     // Alternatif 4: Shift + Sol Tık ve Fareyi Sürükleyerek Zoom
@@ -268,6 +258,7 @@ export function setupUI(scene, camera, controls, planets, sun, asteroidMesh, sta
     });
 
     window.addEventListener('pointermove', (event) => {
+        if (state.isLocked) return;
         if (isShiftDown && event.buttons === 1) { // Shift basılı ve Sol Tık ile sürükleme
             const deltaY = event.clientY - lastMouseY;
             const dragZoomScale = 0.95;
@@ -297,6 +288,40 @@ export function setupUI(scene, camera, controls, planets, sun, asteroidMesh, sta
     window.addEventListener('blur', clearDragLock);
     window.addEventListener('focusout', clearDragLock);
     document.addEventListener('visibilitychange', clearDragLock);
+
+    // ==========================================
+    // ETKİLEŞİM KİLİDİ (LOCK / UNLOCK) BAĞLANTISI
+    // ==========================================
+    const lockBtn = document.getElementById('lockBtn');
+    if (lockBtn) {
+        lockBtn.onclick = function (e) {
+            e.stopPropagation();
+            state.isLocked = !state.isLocked;
+
+            if (state.isLocked) {
+                // KİLİTLİ MOD: Tüm fare fonksiyonları kapatılır
+                controls.mouseButtons = {
+                    LEFT: THREE.MOUSE.NONE,
+                    MIDDLE: THREE.MOUSE.NONE,
+                    RIGHT: THREE.MOUSE.NONE
+                };
+                controls.enableZoom = false;
+                lockBtn.innerHTML = "Etkileşim: Kilitli 🔒";
+                lockBtn.classList.remove('unlocked');
+                clearDragLock();
+            } else {
+                // AÇIK MOD: Sol tık döndürür, tekerlek/orta tık zoom yapar
+                controls.mouseButtons = {
+                    LEFT: THREE.MOUSE.ROTATE,
+                    MIDDLE: THREE.MOUSE.DOLLY,
+                    RIGHT: THREE.MOUSE.NONE // Sağ tık menüsü çakışmasın diye pasif
+                };
+                controls.enableZoom = true;
+                lockBtn.innerHTML = "Etkileşim: Açık 🔓";
+                lockBtn.classList.add('unlocked');
+            }
+        };
+    }
 
     // showInfo fonksiyonunu dışarı aktar (sinematik tur için)
     return showInfo;

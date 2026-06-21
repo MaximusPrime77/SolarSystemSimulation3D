@@ -27,16 +27,15 @@ export function initScene() {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
-    controls.enableZoom = true;
+    controls.enableZoom = false;
     controls.maxDistance = 5000;
     controls.minDistance = 1.5;
     controls.screenSpacePanning = true;
 
-    // Masaüstünde sol tıkla klasör sürüklerken veya seçim kutusu çizerken evrenin dönmesini engellemek için:
-    // Sol tık sürüklemeyi kapatıp, döndürme (rotate) işlevini Sağ Tık'a atıyoruz.
+    // Başlangıçta etkileşim kilitli olacağı için tüm fare fonksiyonları pasiftir
     controls.mouseButtons = {
         LEFT: THREE.MOUSE.NONE,
-        MIDDLE: THREE.MOUSE.DOLLY,
+        MIDDLE: THREE.MOUSE.NONE,
         RIGHT: THREE.MOUSE.NONE
     };
 
