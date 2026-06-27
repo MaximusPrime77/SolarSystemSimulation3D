@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "build": "vite build",
-    "dist": "npm run build && npx electron-packager . \"Gunes Sistemi\" --platform=win32 --arch=x64 --out=builds/desktop --overwrite --icon=icon.ico"
+    "dist": "npm run build && npx electron-packager . \"SolarSystemSimulation3D\" --platform=win32 --arch=x64 --out=builds/desktop --overwrite --icon=icon.ico"
   },
   "keywords": [],
   "author": "Barbaros",
@@ -22,8 +22,8 @@
     "vite": "^5.2.11"
   },
   "build": {
-    "appId": "com.barbaros.gunessistemi",
-    "productName": "Gunes Sistemi",
+    "appId": "com.barbaros.solarsystemsimulation3d",
+    "productName": "SolarSystemSimulation3D",
     "win": {
       "target": "nsis",
       "icon": "icon.png"
