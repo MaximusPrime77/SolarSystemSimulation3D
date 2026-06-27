@@ -11,7 +11,11 @@ Additionally, with **Lively Wallpaper** integration, you can run this simulation
 ## 🔗 Live Demo & Downloads
 
 👉 **[Launch Live Web Simulation](https://maximusprime77.github.io/gunes-sistemi-simulasyonu/)**
-📦 **[Download Desktop Setup (.exe / Portable)](https://github.com/MaximusPrime77/gunes-sistemi-simulasyonu/releases)**
+
+### 📦 Published Release Packages (v1.0.0)
+* 💿 **[Space Simulation Setup 1.0.0.exe](https://github.com/MaximusPrime77/gunes-sistemi-simulasyonu/releases)** – Automated Windows Installer
+* 💼 **[SpaceSimulationPortable-app.zip](https://github.com/MaximusPrime77/gunes-sistemi-simulasyonu/releases)** – Standalone Portable Windows App (No Install)
+* 🌐 **[Space SimulationWeb-app.zip](https://github.com/MaximusPrime77/gunes-sistemi-simulasyonu/releases)** – Offline Web Build & Lively Wallpaper Package
 
 ---
 
@@ -65,13 +69,21 @@ Right-click your active wallpaper in Lively and select **Customize** to adjust t
 
 ---
 
-## 📦 Desktop App Installation (Windows Setup)
+## 📦 Downloads & Installation Guide
 
-You can run this project as a standalone desktop software without opening a web browser.
+You can run this project as a standalone desktop software or offline web package without opening an external browser.
 
-1. Navigate to the **[GitHub Releases](https://github.com/MaximusPrime77/gunes-sistemi-simulasyonu/releases)** page.
-2. Download the latest `Gunes-Sistemi-v1.0.0-win64.zip` or installation package.
-3. Extract and run `Gunes Sistemi.exe` to launch immediately.
+### 💿 1. Windows Installer (`Space Simulation Setup 1.0.0.exe`)
+1. Download **`Space Simulation Setup 1.0.0.exe`** from **[GitHub Releases](https://github.com/MaximusPrime77/gunes-sistemi-simulasyonu/releases)**.
+2. Run the setup file to automatically install the simulation onto your PC.
+
+### 💼 2. Portable Desktop App (`SpaceSimulationPortable-app.zip`)
+1. Download **`SpaceSimulationPortable-app.zip`** from **[GitHub Releases](https://github.com/MaximusPrime77/gunes-sistemi-simulasyonu/releases)**.
+2. Extract the zip file and run `Gunes Sistemi.exe` immediately without setup.
+
+### 🌐 3. Web & Lively Wallpaper Package (`Space SimulationWeb-app.zip`)
+1. Download **`Space SimulationWeb-app.zip`** from **[GitHub Releases](https://github.com/MaximusPrime77/gunes-sistemi-simulasyonu/releases)**.
+2. Extract and drag `index.html` into **Lively Wallpaper** for live interactive 3D desktop wallpapers.
 
 ---
 
