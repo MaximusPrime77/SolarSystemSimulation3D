@@ -67,7 +67,7 @@ void main() {
 export const translations = {
     tr: {
         headerTitle: '◆ KONTROL MERKEZİ',
-        langBtnText: '🌐 DİL / LANG: Türkçe 🇹🇷',
+        langBtnText: '🌐 Türkçe 🇹🇷',
         lockBtnUnlocked: 'Etkileşim: Açık 🔓',
         lockBtnLocked: 'Etkileşim: Kilitli 🔒',
         pauseBtnPause: 'Durdur ⏸️',
@@ -103,7 +103,7 @@ export const translations = {
     },
     en: {
         headerTitle: '◆ CONTROL CENTER',
-        langBtnText: '🌐 LANG / DİL: English 🇬🇧',
+        langBtnText: '🌐 English 🇬🇧',
         lockBtnUnlocked: 'Interaction: Open 🔓',
         lockBtnLocked: 'Interaction: Locked 🔒',
         pauseBtnPause: 'Pause ⏸️',
