@@ -23,8 +23,6 @@ Additionally, with native **Lively Wallpaper** integration, you can run this liv
 
 This project features native support for **Lively Wallpaper**, enabling it to operate as a dynamic, interactive 3D desktop wallpaper without disrupting your daily workflow.
 
-<img src="https://raw.githubusercontent.com/MaximusPrime77/SolarSystemSimulation3D/main/media/lively-wallpaper-preview.png" alt="Lively Wallpaper Integration Preview" width="100%" />
-
 ### 🚀 How to Install on Lively Wallpaper
 1. Download and extract **`SolarSystemSimulation3D-Web.zip`** (or clone the repository).
 2. Open **Lively Wallpaper** on your Windows PC.
